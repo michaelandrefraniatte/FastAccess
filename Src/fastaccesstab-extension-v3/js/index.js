@@ -19,7 +19,7 @@ function escape(unsafe) {
 window.onload = function () {
     document.getElementById("search").addEventListener("keydown", function (e) {
         if (e.keyCode == 13) {
-            search;
+            search();
         }
     });
 
@@ -34,6 +34,7 @@ window.onload = function () {
             changeBox();
             changeStyle();
             changePicture();
+            addClick();
          })
          .catch(function(error) {
             fastaccess = {};
@@ -45,6 +46,7 @@ window.onload = function () {
             changeBox();
             changeStyle();
             changePicture();
+            addClick();
         });
     }
 
@@ -99,25 +101,36 @@ window.onload = function () {
     });
 };
 
+function addClick() {
+    document.getElementById("submit").addEventListener("click", function (e) {
+        search();
+    });
+}
+
+function boxClick() {
+    window.location.href = this.title;
+}
+
 function changeBox() {
     var page = document.createElement('div');
     page.id = "page";
     page.setAttribute('draggable', false);
-    page.addEventListener("dragstart", (event) => { });
     page.addEventListener("dragover", (event) => { });
+    page.addEventListener("dragstart", (event) => { });
     page.addEventListener("drop", (event) => { });
     var text = "";
     for (i = 0; i < boxnames.length; i++) {
-        text += "<div class=\"box\" id=\"box" + i + "\" draggable=\"false\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" ondragstart=\"drag(event)\" onclick=\"window.location.href='" + boxlinks[i] + "'\"" + "title=\"" + boxlinks[i] + "\"" + ">" + boxnames[i] + "</div>";
+        text += "<div class=\"box\" id=\"box" + i + "\" draggable=\"false\" title=\"" + boxlinks[i] + "\"" + ">" + boxnames[i] + "</div>";
     }
     page.innerHTML = text;
     document.body.appendChild(page);
     const elements = document.getElementsByClassName("box");
     for (let i = 0; i < elements.length; i++) {
         elements[i].setAttribute('draggable', false);
-        elements[i].addEventListener("dragstart", (event) => { });
-        elements[i].addEventListener("dragover", (event) => { });
-        elements[i].addEventListener("drop", (event) => { });
+        elements[i].addEventListener("dragover", (event) => { allowDrop(event); });
+        elements[i].addEventListener("dragstart", (event) => { drag(event); });
+        elements[i].addEventListener("drop", (event) => { drop(event); });
+        elements[i].onclick = boxClick;
     }
 }
 
@@ -132,8 +145,7 @@ function changeStyle() {
         }
         var search = document.getElementsByClassName("search");
         var button = document.createElement('div');
-        button.innerHTML = "<input type='submit' value='Search'>";
-        button.onclick = search;
+        button.innerHTML = "<input type='submit' value='Search' id='submit'>";
         button.style.display = "flex";
         search[0].appendChild(button);
         button.firstElementChild.style.color = "white";
@@ -160,8 +172,7 @@ function changeStyle() {
         }
         var search = document.getElementsByClassName("search");
         var button = document.createElement('div');
-        button.innerHTML = "<img src='img/google1.png'>";
-        button.onclick = search;
+        button.innerHTML = "<img src='img/google1.png' id='submit'>";
         button.style.display = "flex";
         search[0].appendChild(button);
         var input = document.getElementById("search");
@@ -179,8 +190,7 @@ function changeStyle() {
         }
         var search = document.getElementsByClassName("search");
         var button = document.createElement('div');
-        button.innerHTML = "<img src='img/google2.png'>";
-        button.onclick = search;
+        button.innerHTML = "<img src='img/google2.png' id='submit'>";
         button.style.display = "flex";
         search[0].appendChild(button);
         var input = document.getElementById("search");
@@ -198,8 +208,7 @@ function changeStyle() {
         }
         var search = document.getElementsByClassName("search");
         var button = document.createElement('div');
-        button.innerHTML = "<input type='submit' value='Search'>";
-        button.onclick = search;
+        button.innerHTML = "<input type='submit' value='Search' id='submit'>";
         button.style.display = "flex";
         search[0].appendChild(button);
         button.firstElementChild.style.color = "purple";
@@ -222,8 +231,7 @@ function changeStyle() {
         }
         var search = document.getElementsByClassName("search");
         var button = document.createElement('div');
-        button.innerHTML = "<input type='submit' value='Search'>";
-        button.onclick = search;
+        button.innerHTML = "<input type='submit' value='Search' id='submit'>";
         button.style.display = "flex";
         search[0].appendChild(button);
         button.firstElementChild.style.color = "white";
@@ -248,8 +256,7 @@ function changeStyle() {
         }
         var search = document.getElementsByClassName("search");
         var button = document.createElement('div');
-        button.innerHTML = "<img src='img/google1.png'>";
-        button.onclick = search;
+        button.innerHTML = "<img src='img/google1.png' id='submit'>";
         button.style.display = "flex";
         search[0].appendChild(button);
         var input = document.getElementById("search");
