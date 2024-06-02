@@ -10,14 +10,9 @@
         "128": "icons/wv128x128.png"
     },
     "chrome_url_overrides": {
-        "icon": "icons/wv128x128.png",
         "newtab": "index.html"
     },
     "permissions": ["favicon", "storage", "activeTab", "scripting", "file://*/*"],
-    "host_permissions": ["*://*/*", "file://*/*"], 
-    "browser_action": {
-        "default_icon": "icons/wv128x128.png",
-        "default_title": "Fast Access Tab"
-    },
+    "host_permissions": ["*://*/*", "file://*/*"],
     "homepage_url": "https://michaelandrefraniatte.github.io/FastAccess-Showcase"
 }
