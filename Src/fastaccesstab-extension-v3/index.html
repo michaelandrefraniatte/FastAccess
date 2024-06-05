@@ -45,7 +45,10 @@
             }
 
             #page {
-                margin: 9%;
+                margin-left: 9%;
+                margin-right: 9%;
+                margin-top: 7%;
+                margin-bottom: 7%;
             }
 
             .box {
@@ -110,13 +113,12 @@
             }
 
             .search {
-                display: block;
-                position: absolute;
-                top: 6%;
-                left: 36%;
-                text-align: left;
-                align-items: left;
-                margin: 0 auto;
+                position: relative;
+                display: inline-block;
+                padding-bottom: 1vh;
+                top: 5vh;
+                left: 50%;
+                transform: translateX(-50%);
             }
 
             .foldersave,
@@ -145,7 +147,6 @@
                 <input id="search" type="text" placeholder="Google search">
             </div>
         </div>
-        <br />
         <copyrights
             style="display: float; float: right; position: fixed; right: 4px; bottom: 0px; color: white; text-align: center; font-family: sans-serif; font-size: 15px; line-height:15px;">
             <b>© MAF</b>

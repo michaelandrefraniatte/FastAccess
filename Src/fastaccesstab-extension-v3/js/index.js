@@ -76,7 +76,7 @@ window.onload = function () {
                     div.style.backgroundColor = "rgb(50, 50, 50)";
                     div.style.zIndex = "10";
                     div.style.cursor = "pointer";
-                    div.style.width = 8.5 + "vw";
+                    div.style.width = 8.6 + "vw";
                     div.style.height = 2 + "vw";
                     div.style.padding = "3px";
                     div.style.margin = "auto";
@@ -336,7 +336,7 @@ function AddMenuPicture() {
         div.style.backgroundColor = "rgb(50, 50, 50)";
         div.style.zIndex = "10";
         div.style.cursor = "pointer";
-        div.style.width = 8 + "vw";
+        div.style.width = 8.1 + "vw";
         div.style.height = 2 + "vw";
         div.style.padding = "3px";
         div.style.margin = "auto";
